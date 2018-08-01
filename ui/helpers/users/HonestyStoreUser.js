@@ -3,6 +3,10 @@ const HomePage = require('../page_objects/HomePage'); //TODO move all page requi
 const DisclaimerPage = require('../page_objects/DisclaimerPage');
 const ScanItemPage = require('../page_objects/ScanItemPage');
 const path = require('path');
+const sleep = (ms) => new Promise((resolve) => {
+setTimeout(resolve, ms);
+});
+
 
 class HonestyStoreUser extends User {
     constructor() {
@@ -10,6 +14,7 @@ class HonestyStoreUser extends User {
     }
 
     async injectWebcam() {
+        await sleep(10000); //TODO tidy me
         return await this.webDriver.executeScript('injectWebcam({isDetecting: false, cameraConnected: true})');
     }
 
@@ -36,13 +41,8 @@ class HonestyStoreUser extends User {
     }
 
     //Scan item page ****************
-    async clicksFileUpload() {
+    async uploadsFile(filePath = `${path.resolve(__dirname)}\\..\\..\\assets\\thinking_man.png`) {
         let element = await this.getElementById(ScanItemPage.fileUpload.browse.id);
-        element.click();
-    }
-
-    async uploadsFile(filePath = `${path.resolve(__dirname)}\\assets\\thinking_man.png`) {
-        let element = await this.getElementById(ScanItemPage.fileUpload.fileSelector.id);
         element.sendKeys(filePath);
     }
 }
