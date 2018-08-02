@@ -7,3 +7,7 @@ module.exports.fileUpload = {
         id: 'fileUploadBrowse'
     }
 }
+
+module.exports.header = {
+    css: 'header'
+}

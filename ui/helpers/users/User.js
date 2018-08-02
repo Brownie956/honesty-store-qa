@@ -22,6 +22,25 @@ class User {
         const el = await this.webDriver.wait(until.elementLocated(By.className(className)), timeout);
         return await this.webDriver.wait(until.elementIsVisible(el), timeout);
     }
+
+    async waitForElementLocated(selector, selectorType, timeout = 20000) {
+        await this.webDriver.wait(until.elementLocated(
+            (() => {
+                switch(selectorType) {
+                    case 'id':
+                        return By.id(selector);
+                    case 'xpath':
+                        return By.xpath(selector);
+                    case 'class':
+                        return By.className(selector);
+                    case 'css':
+                        return By.css(selector);
+                    default:
+                        throw new Error(`Invalid selectorType: ${selectorType}`);
+                }
+            })()
+        ), timeout);
+    }
     
     async navigateToPage(url) {
         await this.webDriver.get(url);
@@ -32,4 +51,4 @@ class User {
     }
 }
 
-module.exports.User = User;
+module.exports = User;
