@@ -8,23 +8,8 @@ class User {
         this.webDriver = driver.webDriver;
     }
 
-    async getElementById(id, timeout = 20000) {
-        const el = await this.webDriver.wait(until.elementLocated(By.id(id)), timeout);
-        return await this.webDriver.wait(until.elementIsVisible(el), timeout);
-    }
-    
-    async getElementByXPath(xpath, timeout = 20000) {
-        const el = await this.webDriver.wait(until.elementLocated(By.xpath(xpath)), timeout);
-        return await this.webDriver.wait(until.elementIsVisible(el), timeout);
-    }
-
-    async getElementByClass(className, timeout = 20000) {
-        const el = await this.webDriver.wait(until.elementLocated(By.className(className)), timeout);
-        return await this.webDriver.wait(until.elementIsVisible(el), timeout);
-    }
-
     async waitForElementLocated(selector, selectorType, timeout = 20000) {
-        await this.webDriver.wait(until.elementLocated(
+        return await this.webDriver.wait(until.elementLocated(
             (() => {
                 switch(selectorType) {
                     case 'id':
@@ -40,6 +25,23 @@ class User {
                 }
             })()
         ), timeout);
+    }
+
+    async getElement(selector, selectorType, timeout = 20000) {
+        const el = await this.waitForElementLocated(selector, selectorType, timeout);
+        return await this.webDriver.wait(until.elementIsVisible(el), timeout);
+    }
+
+    async getElementById(id, timeout = 20000) {
+        return this.getElement(id, 'id', timeout);
+    }
+    
+    async getElementByXPath(xpath, timeout = 20000) {
+        return this.getElement(xpath, 'xpath', timeout);
+    }
+
+    async getElementByClass(className, timeout = 20000) {
+        return this.getElement(className, 'class', timeout);
     }
     
     async navigateToPage(url) {
