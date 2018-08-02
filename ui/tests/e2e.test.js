@@ -19,5 +19,7 @@ describe('The honesty store kiosk', () => {
         await user.injectWebcam();
         await user.uploadsFile();
 
+        await user.removeHand();
+
     });
 });
