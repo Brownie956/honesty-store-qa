@@ -21,5 +21,7 @@ describe('The honesty store kiosk', () => {
 
         await user.removeHand();
 
+        await user.clicksConfirmSnack();
+
     });
 });
