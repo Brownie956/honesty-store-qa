@@ -7,5 +7,10 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "dependencies": {
+    "connect": "^3.6.6",
+    "http-proxy": "^1.17.0",
+    "nock": "^9.4.4"
   }
 }

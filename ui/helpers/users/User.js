@@ -1,11 +1,17 @@
-const {By, until} = require('selenium-webdriver');
+const webdriver = require('selenium-webdriver');
+const driver = require('../../config/Driver');
 const conf = require('../../config/Conf');
-const driverModule = require('../../config/Driver');
 
 class User {
     constructor() {
-        const driver = new driverModule.Driver(conf.driverType);
-        this.webDriver = driver.webDriver;
+        const dr = new driver.Driver(conf.driverType);
+        this.webDriver = dr.webDriver;
+    }
+
+    async waitUntil(condition, timeout = 20000) {
+        await this.webDriver.wait(() => {
+            return condition;
+        }, timeout)
     }
 
     async waitForElementLocated(selector, selectorType, timeout = 20000) {
@@ -13,7 +19,7 @@ class User {
             (() => {
                 switch(selectorType) {
                     case 'id':
-                        return By.id(selector);
+                        return webdriver.By.id(selector);
                     case 'xpath':
                         return By.xpath(selector);
                     case 'class':
@@ -28,7 +34,13 @@ class User {
     }
 
     async getElement(selector, selectorType, timeout = 20000) {
+        console.log('********************');
+        console.log(`SEARCHING FOR ELEMENT ${selector}`);
+        console.log('********************');
         const el = await this.waitForElementLocated(selector, selectorType, timeout);
+        console.log('********************');
+        console.log(`ELEMENT ${selector} LOCATED`);
+        console.log('********************');
         return await this.webDriver.wait(until.elementIsVisible(el), timeout);
     }
 
