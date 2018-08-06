@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
     async injectWebcam() {
-        this.waitForElementLocated(ScanItemPage.header.css, 'css');
+        await this.getElementByCSS(ScanItemPage.header.css);
         return await this.webDriver.executeScript('injectWebcam({isDetecting: false, cameraConnected: true})');
     },
 

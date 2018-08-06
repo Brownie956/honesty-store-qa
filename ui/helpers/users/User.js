@@ -7,7 +7,7 @@ class User {
     }
 
     async waitUntil(condition, timeout = 20000) {
-        await this.webDriver.wait(() => {
+        return await this.webDriver.wait(() => {
             return condition;
         }, timeout)
     }
@@ -31,21 +31,24 @@ class User {
         ), timeout);
     }
 
-    async getElement(selector, selectorType, timeout = 20000) {
-        const el = await this.waitForElementLocated(selector, selectorType, timeout);
-        return await this.webDriver.wait(until.elementIsVisible(el), timeout);
+    async focusOnElement(element) {
+        await this.webDriver.executeScript("arguments[0].scrollIntoView(false);", element);
     }
 
     async getElementById(id, timeout = 20000) {
-        return this.getElement(id, 'id', timeout);
+        return await this.waitForElementLocated(id, 'id', timeout);
     }
     
     async getElementByXPath(xpath, timeout = 20000) {
-        return this.getElement(xpath, 'xpath', timeout);
+        return await this.waitForElementLocated(xpath, 'xpath', timeout);
     }
 
     async getElementByClass(className, timeout = 20000) {
-        return this.getElement(className, 'class', timeout);
+        return await this.waitForElementLocated(className, 'class', timeout);
+    }
+
+    async getElementByCSS(css, timeout = 20000) {
+        return await this.waitForElementLocated(css, 'css', timeout);
     }
     
     async navigateToPage(url) {
