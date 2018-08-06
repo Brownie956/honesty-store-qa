@@ -1,20 +1,26 @@
 const {Builder} = require('selenium-webdriver');
-const JSExecutor = require('selenium-webdriver/')
 require('selenium-webdriver/chrome');
 require('selenium-webdriver/firefox');
 require('chromedriver');
 require('geckodriver');
 
-const driverType = {
+// Environment config
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000 * 60 * 5;
+
+// Driver config
+const driverTypes = {
     FIREFOX: 'firefox',
     CHROME: 'chrome'
 }
 
+const driverType = driverTypes.FIREFOX;
+
 class Driver {
-    constructor(driverType) {
+    constructor() {
         this.webDriver = new Builder().forBrowser(driverType).build();
     }
 }
 
-module.exports.Driver = Driver;
-module.exports.driverType = driverType;
+module.exports.setup = () => {
+    return (new Driver()).webDriver;
+}

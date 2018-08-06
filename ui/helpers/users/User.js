@@ -1,11 +1,9 @@
 const {By, until} = require('selenium-webdriver');
-const conf = require('../../config/Conf');
-const driverModule = require('../../config/Driver');
+const config = require('../../config/config');
 
 class User {
     constructor() {
-        const driver = new driverModule.Driver(conf.driverType);
-        this.webDriver = driver.webDriver;
+        this.webDriver = config.setup();
     }
 
     async waitForElementLocated(selector, selectorType, timeout = 20000) {
