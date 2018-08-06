@@ -6,6 +6,12 @@ class User {
         this.webDriver = config.setup();
     }
 
+    async waitUntil(condition, timeout = 20000) {
+        await this.webDriver.wait(() => {
+            return condition;
+        }, timeout)
+    }
+
     async waitForElementLocated(selector, selectorType, timeout = 20000) {
         return await this.webDriver.wait(until.elementLocated(
             (() => {
