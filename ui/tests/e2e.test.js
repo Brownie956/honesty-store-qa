@@ -8,7 +8,7 @@ describe('The honesty store kiosk', () => {
     });
 
     afterAll(async () => {
-        await user.browserQuit();
+        // await user.browserQuit();
     });
 
     it('identifies an item and sends a slack reminder', async () => {
@@ -22,6 +22,8 @@ describe('The honesty store kiosk', () => {
         await user.removeHand();
 
         await user.clicksConfirmSnack();
+
+        await user.clicksAccountName('cbrown');
 
     });
 });

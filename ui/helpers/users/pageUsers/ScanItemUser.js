@@ -7,7 +7,7 @@ module.exports = {
         return await this.webDriver.executeScript('injectWebcam({isDetecting: false, cameraConnected: true})');
     },
 
-    async uploadsFile(filePath = `${path.resolve(__dirname)}\\..\\..\\..\\assets\\thinking_man.png`) {
+    async uploadsFile(filePath = `${path.resolve(__dirname)}\\..\\..\\..\\assets\\coke-zero.png`) {
         let element = await this.getElementById(ScanItemPage.fileUpload.browse.id);
         element.sendKeys(filePath);
     }
