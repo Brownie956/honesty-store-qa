@@ -14,5 +14,6 @@ Object.assign(HonestyStoreUser.prototype, require('./pageUsers/DisclaimerUser'))
 Object.assign(HonestyStoreUser.prototype, require('./pageUsers/ScanItemUser'));
 Object.assign(HonestyStoreUser.prototype, require('./pageUsers/ConfirmationUser'));
 Object.assign(HonestyStoreUser.prototype, require('./pageUsers/SlackNameUser'));
+Object.assign(HonestyStoreUser.prototype, require('./pageUsers/SuccessUser'));
 
 module.exports = HonestyStoreUser

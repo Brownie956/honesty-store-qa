@@ -55,6 +55,10 @@ class User {
         await this.webDriver.get(url);
     }
 
+    async viewsCurrentURL() {
+        return await this.webDriver.getCurrentUrl();
+    }
+
     browserQuit(){
        this.webDriver.quit();
     }
