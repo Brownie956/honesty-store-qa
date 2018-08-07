@@ -1,0 +1,27 @@
+const HonestyStoreUser = require('../../helpers/users/HonestyStoreUser');
+const specHelper = require('../../helpers/specHelper');
+
+const user = new HonestyStoreUser();
+
+describe('The honesty store kiosk home page', () => {
+    beforeAll(async () => {
+        await user.navigatesToHomePage();
+    });
+
+    afterAll(async () => {
+        await user.browserQuit();
+    });
+
+    it('loads with all elements', async () => {
+        expect.extend(specHelper.toBeDisplayed);
+        let sendReminder = await user.viewsSendReminderExists();
+        let handImages = await user.viewsHandImagesExists();
+        let heading = await user.viewsHomeHeadingExists();
+        let subheading = await user.viewsHomeSubHeadingExists();
+
+        expect(sendReminder).toBeDisplayed(true);
+        expect(handImages).toBeDisplayed(true);
+        expect(heading).toBeDisplayed(true);
+        expect(subheading).toBeDisplayed(true);
+    });
+});

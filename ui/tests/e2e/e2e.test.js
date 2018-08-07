@@ -1,4 +1,4 @@
-const HonestyStoreUser = require('../helpers/users/HonestyStoreUser');
+const HonestyStoreUser = require('../../helpers/users/HonestyStoreUser');
 
 const user = new HonestyStoreUser();
 

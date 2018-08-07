@@ -9,6 +9,7 @@ module.exports = {
 
     async uploadsFile(filePath = `${path.resolve(__dirname)}\\..\\..\\..\\assets\\coke-zero.png`) {
         let element = await this.getElementById(ScanItemPage.fileUpload.browse.id);
-        element.sendKeys(filePath);
+        await element.isDisplayed();
+        await element.sendKeys(filePath);
     }
 }
