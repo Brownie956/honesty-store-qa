@@ -9,5 +9,10 @@ module.exports = {
     async viewsSuccessMessage() {
         let message = await this.getElementByClass(SuccessPage.notification.class);
         return message.getText();
+    },
+
+    async viewsSuccessHandExists() {
+        let element = await this.getElementByClass(SuccessPage.images.successHand.class);
+        return await element.isDisplayed();
     }
 }

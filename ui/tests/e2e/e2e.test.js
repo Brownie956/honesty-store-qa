@@ -1,6 +1,8 @@
 const HonestyStoreUser = require('../../helpers/users/HonestyStoreUser');
 const SuccessPage = require('../../helpers/page_objects/SuccessPage');
 const HomePage = require('../../helpers/page_objects/HomePage');
+const specHelper = require('../../helpers/specHelper');
+const path = require('path');
 
 const user = new HonestyStoreUser();
 
@@ -14,6 +16,7 @@ describe('The honesty store kiosk', () => {
     });
 
     it('identifies an item and sends a slack reminder', async () => {
+        expect.extend(specHelper.toBeDisplayed);
         //Home
         await user.clicksSendReminder();
         //Disclaimer
@@ -29,7 +32,9 @@ describe('The honesty store kiosk', () => {
         await user.clicksConfirmSlackMessage();
         //Success
         let reminderMessage = await user.viewsSuccessMessage();
+        let successHand = await user.viewsSuccessHandExists();
         expect(reminderMessage).toEqual('Reminder sent!');
+        expect(successHand).toBeDisplayed(true);
         //Final check
         await user.clicksSuccessMessage();
         await user.waitUntil(user.getCurrentURL != SuccessPage.url);
@@ -38,6 +43,7 @@ describe('The honesty store kiosk', () => {
     });
 
     it('identifies an item incorrectly and allows the user to edit their snack', async () => {
+        expect.extend(specHelper.toBeDisplayed);
         //Home
         await user.clicksSendReminder();
         //Disclaimer
@@ -55,7 +61,9 @@ describe('The honesty store kiosk', () => {
         await user.clicksConfirmSlackMessage();
         //Success
         let reminderMessage = await user.viewsSuccessMessage();
+        let successHand = await user.viewsSuccessHandExists();
         expect(reminderMessage).toEqual('Reminder sent!');
+        expect(successHand).toBeDisplayed(true);
         //Final check
         await user.clicksSuccessMessage();
         await user.waitUntil(user.getCurrentURL != SuccessPage.url);
@@ -64,13 +72,14 @@ describe('The honesty store kiosk', () => {
     });
 
     it('fails to identify a snack and allow the user to select their snack', async () => {
+        expect.extend(specHelper.toBeDisplayed);
         //Home
         await user.clicksSendReminder();
         //Disclaimer
         await user.clicksAcceptDisclaimer();
         //Scan Item
         await user.injectWebcam();
-        await user.uploadsFile(); //TODO Select an item that doesn't identify
+        await user.uploadsFile(`${path.resolve(__dirname)}\\..\\..\\assets\\empty.png`);
         //Edit Snack
         await user.selectsSnack('Mars Bar');
         //Slack Name
@@ -78,7 +87,9 @@ describe('The honesty store kiosk', () => {
         await user.clicksConfirmSlackMessage();
         //Success
         let reminderMessage = await user.viewsSuccessMessage();
+        let successHand = await user.viewsSuccessHandExists();
         expect(reminderMessage).toEqual('Reminder sent!');
+        expect(successHand).toBeDisplayed(true);
         //Final check
         await user.clicksSuccessMessage();
         await user.waitUntil(user.getCurrentURL != SuccessPage.url);

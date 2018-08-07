@@ -12,3 +12,13 @@ module.exports.buttons = {
         class: 'button username-entry--confirm-button'
     }
 }
+
+module.exports.header = {
+    instructions: {
+        class: 'text-select-slack'
+    }
+}
+
+module.exports.scrollSelect = {
+    id: 'scroll-select'
+}
