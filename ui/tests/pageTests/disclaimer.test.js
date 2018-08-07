@@ -20,5 +20,5 @@ describe('The honesty store kiosk disclaimer page', () => {
         await user.waitUntil(user.getCurrentURL != DisclaimerPage.url);
         const currentURL = await user.viewsCurrentURL();
         expect(currentURL).toBe(HomePage.url);
-    })
+    });
 });

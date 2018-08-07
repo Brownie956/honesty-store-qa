@@ -9,5 +9,15 @@ module.exports.fileUpload = {
 }
 
 module.exports.header = {
-    css: 'header'
+    css: 'header',
+    instructions: {
+        class: 'item-recognition item-recognition--instructions'
+    },
+    back: {
+        class: 'button button-back'
+    }
+}
+
+module.exports.viewFinder = {
+    id: 'view-finder'
 }
