@@ -1,9 +1,11 @@
 const HonestyStoreUser = require('../../helpers/users/HonestyStoreUser');
+const SuccessPage = require('../../helpers/page_objects/SuccessPage');
+const HomePage = require('../../helpers/page_objects/HomePage');
 
 const user = new HonestyStoreUser();
 
 describe('The honesty store kiosk', () => {
-    beforeAll(async () => {
+    beforeEach(async () => {
         await user.navigatesToHomePage();
     });
 
@@ -30,7 +32,8 @@ describe('The honesty store kiosk', () => {
         expect(reminderMessage).toEqual('Reminder sent!');
         //Final check
         await user.clicksSuccessMessage();
-        let sendReminder = await user.viewsSendReminder();
-        expect(sendReminder).toEqual('Send a reminder');
+        await user.waitUntil(user.getCurrentURL != SuccessPage.url);
+        const currentURL = await user.viewsCurrentURL();
+        expect(currentURL).toBe(HomePage.url);
     });
 });

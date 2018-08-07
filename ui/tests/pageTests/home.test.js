@@ -4,7 +4,7 @@ const specHelper = require('../../helpers/specHelper');
 const user = new HonestyStoreUser();
 
 describe('The honesty store kiosk home page', () => {
-    beforeAll(async () => {
+    beforeEach(async () => {
         await user.navigatesToHomePage();
     });
 
