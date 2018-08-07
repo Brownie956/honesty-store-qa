@@ -9,5 +9,10 @@ module.exports = {
     async clicksConfirmSnack(){
         let confirmButton = await this.getElementByClass(ConfirmItemPage.buttons.confirmSnack.class);
         confirmButton.click();
+    },
+
+    async clicksEditSnack(){
+        let confirmButton = await this.getElementByClass(ConfirmItemPage.buttons.editSnack.class);
+        confirmButton.click();
     }
 }
