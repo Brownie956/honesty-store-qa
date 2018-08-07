@@ -12,6 +12,6 @@ module.exports = {
 
     async viewsSendReminder() {
         let element = await this.getElementByClass(HomePage.reminderButton.class);
-        element.getText();
+        return await element.getText();
     }
 }

@@ -30,7 +30,7 @@ describe('The honesty store kiosk', () => {
         expect(reminderMessage).toEqual('Reminder sent!');
         //Final check
         await user.clicksSuccessMessage();
-        let sendReminder = await user.viewsSendReminder(); //TODO fix me
+        let sendReminder = await user.viewsSendReminder();
         expect(sendReminder).toEqual('Send a reminder');
     });
 });
