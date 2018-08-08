@@ -8,6 +8,7 @@ const user = new HonestyStoreUser();
 describe('The honesty store kiosk edit snack page', () => {
     beforeEach(async () => {
         //Home
+        await user.navigatesToHomePage();
         await user.clicksSendReminder();
         //Disclaimer
         await user.clicksAcceptDisclaimer();

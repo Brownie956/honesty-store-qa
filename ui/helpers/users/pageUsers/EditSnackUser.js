@@ -17,7 +17,7 @@ module.exports = {
     },
 
     async selectsSnack(snackName) {
-        let element = this.getElementByXPath(EditSnackPage.getSnackXPath(snackName));
+        let element = await this.getElementByXPath(EditSnackPage.getSnackXPath(snackName));
         await this.focusOnElement(element);
         element.click();
     }
