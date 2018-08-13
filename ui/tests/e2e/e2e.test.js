@@ -9,13 +9,14 @@ const user = new HonestyStoreUser();
 describe('The honesty store kiosk', () => {
     beforeEach(async () => {
         await user.navigatesToHomePage();
+        await user.logsIntoKiosk(user.kioskUser.username, user.kioskUser.password);
     });
 
     afterAll(async () => {
         await user.browserQuit();
     });
 
-    it('identifies an item and sends a slack reminder', async () => {
+    it.only('identifies an item and sends a slack reminder', async () => {
         expect.extend(specHelper.toBeDisplayed);
         //Home
         await user.clicksSendReminder();

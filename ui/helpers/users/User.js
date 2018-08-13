@@ -6,6 +6,10 @@ class User {
         this.webDriver = config.setup();
     }
 
+    async waitForDuration(durationMillis) {
+        this.webDriver.sleep(durationMillis);
+    }
+
     async waitUntil(condition, timeout = 20000) {
         return await this.webDriver.wait(() => {
             return condition;
@@ -24,6 +28,8 @@ class User {
                         return By.className(selector);
                     case 'css':
                         return By.css(selector);
+                    case 'name':
+                        return By.name(selector);
                     default:
                         throw new Error(`Invalid selectorType: ${selectorType}`);
                 }
@@ -49,6 +55,10 @@ class User {
 
     async getElementByCSS(css, timeout = 20000) {
         return await this.waitForElementLocated(css, 'css', timeout);
+    }
+
+    async getElementByName(name, timeout = 20000) {
+        return await this.waitForElementLocated(name, 'name', timeout);
     }
     
     async navigateToPage(url) {

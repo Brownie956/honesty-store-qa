@@ -4,10 +4,10 @@ module.exports.url = `${Page.baseURL}/`;
 
 module.exports.buttons = {
     noPhoto: {
-        class: 'button homepage--button--nophoto'
+        class: 'button btn-secondary btn-block'
     },
     snackChat: {
-        class: 'button homepage--button--snackchat'
+        class: 'button btn-primary btn-block'
     }
 }
 
