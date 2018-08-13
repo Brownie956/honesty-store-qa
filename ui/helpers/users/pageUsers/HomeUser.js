@@ -6,17 +6,32 @@ module.exports = {
     },
 
     async clicksSendReminder() {
-        let element = await this.getElementByClass(HomePage.reminderButton.class);
+        let element = await this.getElementByClass(HomePage.buttons.noPhoto.class);
         element.click();
     },
 
     async viewsSendReminder() {
-        let element = await this.getElementByClass(HomePage.reminderButton.class);
+        let element = await this.getElementByClass(HomePage.buttons.noPhoto.class);
         return await element.getText();
     },
 
     async viewsSendReminderExists() {
-        let element = await this.getElementByClass(HomePage.reminderButton.class);
+        let element = await this.getElementByClass(HomePage.buttons.noPhoto.class);
+        return await element.isDisplayed();
+    },
+
+    async clicksSendSnackChat() {
+        let element = await this.getElementByClass(HomePage.buttons.snackChat.class);
+        element.click();
+    },
+
+    async viewsSendSnackChat() {
+        let element = await this.getElementByClass(HomePage.buttons.snackChat.class);
+        return await element.getText();
+    },
+
+    async viewsSendSnackChatExists() {
+        let element = await this.getElementByClass(HomePage.buttons.snackChat.class);
         return await element.isDisplayed();
     },
 
