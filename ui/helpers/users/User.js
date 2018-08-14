@@ -16,6 +16,14 @@ class User {
         }, timeout)
     }
 
+    async waitUntilElementNotPresent(locator, timeout = 20000) {
+        return await this.webDriver.wait(() => {
+            return this.webDriver.findElements(locator).then((elements) => {
+                return elements.length <= 0;
+            });
+        }, timeout);
+    }
+
     async waitForElementLocated(selector, selectorType, timeout = 20000) {
         return await this.webDriver.wait(until.elementLocated(
             (() => {

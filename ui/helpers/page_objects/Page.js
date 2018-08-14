@@ -29,5 +29,8 @@ module.exports.login = {
         submit: {
             xpath: ".//button[@type='submit']"
         }
+    },
+    container: {
+        id: 'firebaseui_container'
     }
 }
