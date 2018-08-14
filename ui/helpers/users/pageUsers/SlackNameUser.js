@@ -8,7 +8,7 @@ module.exports = {
     },
 
     async clicksConfirmSlackMessage() {
-        let element = await this.getElementByClass(SlackNamePage.buttons.confirm.class);
+        let element = await this.getElementByXPath(SlackNamePage.buttons.confirm.xpath);
         element.click();
     },
 

@@ -6,8 +6,8 @@ module.exports = {
     },
 
     async clicksSendReminder() {
-        let element = await this.getElementByClass(HomePage.buttons.noPhoto.class);
         this.waitForDuration(10000); //TODO work out why this doesn't click it
+        let element = await this.getElementByClass(HomePage.buttons.noPhoto.class);
         element.click();
     },
 

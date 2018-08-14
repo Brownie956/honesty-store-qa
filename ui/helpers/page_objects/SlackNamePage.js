@@ -9,13 +9,16 @@ module.exports.getAccountXPath = (name) => {
 
 module.exports.buttons = {
     confirm: {
-        class: 'button username-entry--confirm-button'
+        xpath: ".//div[@class='confirm-modal']//button"
+    },
+    back: {
+        class: 'button btn-back'
     }
 }
 
 module.exports.header = {
     instructions: {
-        class: 'text-select-slack'
+        class: 'header-text'
     }
 }
 

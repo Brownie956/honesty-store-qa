@@ -5,10 +5,10 @@ module.exports.url = `${Page.baseURL}/editsnack`;
 module.exports.header = {
     css: 'header',
     instructions: {
-        class: 'edit-snack edit-snack--text-info'
+        class: 'header-text'
     },
     back: {
-        class: 'button button-back'
+        class: 'button btn-back'
     }
 }
 

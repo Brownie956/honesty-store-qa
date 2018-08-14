@@ -11,10 +11,10 @@ module.exports.fileUpload = {
 module.exports.header = {
     css: 'header',
     instructions: {
-        class: 'item-recognition item-recognition--instructions'
+        class: 'header-text'
     },
     back: {
-        class: 'button button-back'
+        class: 'button btn-back'
     }
 }
 

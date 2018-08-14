@@ -7,12 +7,12 @@ module.exports = {
     },
 
     async clicksConfirmSnack(){
-        let confirmButton = await this.getElementByClass(ConfirmItemPage.buttons.confirmSnack.class);
+        let confirmButton = await this.getElementByXPath(ConfirmItemPage.buttons.confirmSnack.xpath);
         confirmButton.click();
     },
 
     async clicksEditSnack(){
-        let confirmButton = await this.getElementByClass(ConfirmItemPage.buttons.editSnack.class);
+        let confirmButton = await this.getElementByXPath(ConfirmItemPage.buttons.editSnack.xpath);
         confirmButton.click();
     }
 }

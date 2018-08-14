@@ -9,6 +9,6 @@ module.exports.notification = {
 
 module.exports.images = {
     successHand: {
-        class: 'success-hand'
+        class: 'hand'
     }
 }

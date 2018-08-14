@@ -8,9 +8,9 @@ module.exports.handImage = {
 
 module.exports.buttons = {
     editSnack: {
-        class: 'button button-editsnack'
+        xpath: ".//button[@data-test='NO']"
     },
     confirmSnack: {
-        class: 'button button-yes'
+        xpath: ".//button[@data-test='YES']"
     }
 }

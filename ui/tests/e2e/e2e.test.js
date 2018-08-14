@@ -16,7 +16,7 @@ describe('The honesty store kiosk', () => {
         await user.browserQuit();
     });
 
-    it.only('identifies an item and sends a slack reminder', async () => {
+    it('identifies an item and sends a slack reminder', async () => {
         expect.extend(specHelper.toBeDisplayed);
         //Home
         await user.clicksSendReminder();
