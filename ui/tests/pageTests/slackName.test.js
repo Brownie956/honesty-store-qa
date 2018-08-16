@@ -9,6 +9,7 @@ describe('The honesty store kiosk slack name page', () => {
     beforeEach(async () => {
         //Home
         await user.navigatesToHomePage();
+        await user.logsIntoKiosk(user.kioskUser.username, user.kioskUser.password);
         await user.clicksSendReminder();
         //Disclaimer
         await user.clicksAcceptDisclaimer();

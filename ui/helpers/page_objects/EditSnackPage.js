@@ -12,6 +12,12 @@ module.exports.header = {
     }
 }
 
+module.exports.buttons = {
+    confirm: {
+        xpath: ".//div[@class='confirm-modal']//button"
+    }
+}
+
 module.exports.scrollSelect = {
     id: 'scroll-select'
 }

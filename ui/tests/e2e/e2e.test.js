@@ -57,6 +57,7 @@ describe('The honesty store kiosk', () => {
         await user.clicksEditSnack();
         //Edit Snack
         await user.selectsSnack('Mars Bar');
+        await user.clicksConfirmSnack();
         //Slack Name
         await user.clicksAccountName('cbrown');
         await user.clicksConfirmSlackMessage();
@@ -72,7 +73,7 @@ describe('The honesty store kiosk', () => {
         expect(currentURL).toBe(HomePage.url);
     });
 
-    it('fails to identify a snack and allow the user to select their snack', async () => {
+    it.only('fails to identify a snack and allow the user to select their snack', async () => {
         expect.extend(specHelper.toBeDisplayed);
         //Home
         await user.clicksSendReminder();
@@ -83,6 +84,39 @@ describe('The honesty store kiosk', () => {
         await user.uploadsFile(`${path.resolve(__dirname)}\\..\\..\\assets\\empty.png`);
         //Edit Snack
         await user.selectsSnack('Mars Bar');
+        await user.clicksConfirmSnack();
+        //Slack Name
+        await user.clicksAccountName('cbrown');
+        await user.clicksConfirmSlackMessage();
+        //Success
+        let successHand = await user.viewsSuccessHandExists();
+        expect(successHand).toBeDisplayed(true);
+
+        await user.removeSuccessHand(); //hack
+
+        let reminderMessage = await user.viewsSuccessMessage();
+        expect(reminderMessage).toEqual('Reminder sent!');
+        //Final check
+        await user.clicksSuccessMessage();
+        await user.waitUntil(user.getCurrentURL != SuccessPage.url);
+        const currentURL = await user.viewsCurrentURL();
+        expect(currentURL).toBe(HomePage.url);
+    });
+
+    xit('fails to identify a snack and sends a SnackChat', async () => {
+        expect.extend(specHelper.toBeDisplayed);
+        //Home
+        await user.clicksSendSnackChat();
+        //Disclaimer
+        await user.clicksAcceptDisclaimer();
+        //Scan Item
+        await user.injectWebcam();
+        await user.uploadsFile(`${path.resolve(__dirname)}\\..\\..\\assets\\empty.png`);
+        //Edit Snack
+        await user.selectsSnack('Mars Bar');
+        await user.clicksConfirmSnack();
+        //SnackChat
+        //TODO how do we get around this?
         //Slack Name
         await user.clicksAccountName('cbrown');
         await user.clicksConfirmSlackMessage();

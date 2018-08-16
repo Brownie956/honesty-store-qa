@@ -6,6 +6,7 @@ module.exports = {
     },
 
     async clicksSendReminder() {
+        this.waitForDuration(5000); //Hack due to issue #342 (connection error on initial login)
         let element = await this.getElementByClass(HomePage.buttons.noPhoto.class);
         element.click();
     },

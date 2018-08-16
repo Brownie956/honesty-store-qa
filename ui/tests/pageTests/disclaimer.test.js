@@ -7,6 +7,7 @@ const user = new HonestyStoreUser();
 describe('The honesty store kiosk disclaimer page', () => {
     beforeEach(async () => {
         await user.navigatesToHomePage();
+        await user.logsIntoKiosk(user.kioskUser.username, user.kioskUser.password);
         await user.clicksSendReminder();
     });
 

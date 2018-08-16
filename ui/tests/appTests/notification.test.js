@@ -7,6 +7,7 @@ const user = new HonestyStoreUser();
 describe('The honesty store kiosk', () => {
     beforeEach(async () => {
         await user.navigatesToHomePage();
+        await user.logsIntoKiosk(user.kioskUser.username, user.kioskUser.password);
         await user.clicksSendReminder();
     });
 

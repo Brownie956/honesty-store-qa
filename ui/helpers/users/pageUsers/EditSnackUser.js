@@ -11,6 +11,11 @@ module.exports = {
         return await element.isDisplayed();
     },
 
+    async clicksConfirmSnack() {
+        let element = await this.getElementByXPath(EditSnackPage.buttons.confirm.xpath);
+        element.click();
+    },
+
     async clicksEditSnackBackButton() {
         let element = await this.getElementByClass(EditSnackPage.header.back.class);
         element.click();
