@@ -1,8 +1,8 @@
-const HonestyStoreUser = require('../../helpers/users/HonestyStoreUser');
-const SuccessPage = require('../../helpers/page_objects/SuccessPage');
-const HomePage = require('../../helpers/page_objects/HomePage');
-const specHelper = require('../../helpers/specHelper');
-const path = require('path');
+import * as HonestyStoreUser from '../../helpers/users/HonestyStoreUser';
+import * as SuccessPage from '../../helpers/page_objects/SuccessPage';
+import * as HomePage from '../../helpers/page_objects/HomePage';
+import * as specHelper from '../../helpers/specHelper';
+import * as path from 'path';
 
 const user = new HonestyStoreUser();
 

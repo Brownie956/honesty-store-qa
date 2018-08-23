@@ -1,9 +1,9 @@
-const {Builder} = require('selenium-webdriver');
-require('selenium-webdriver/chrome');
-const firefox = require('selenium-webdriver/firefox');
-require('chromedriver');
-require('geckodriver');
-const path = require('path');
+import { Builder } from 'selenium-webdriver';
+import mySeleniumChromeDefault from 'selenium-webdriver/chrome';
+import * as firefox from 'selenium-webdriver/firefox';
+import myChromeDefault from 'chromedriver';
+import myGeckoDefault from 'geckodriver';
+import * as path from 'path';
 
 // Environment config
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000 * 60 * 5;
@@ -27,6 +27,6 @@ class Driver {
     }
 }
 
-module.exports.setup = () => {
+export function setup() {
     return (new Driver()).webDriver;
 }

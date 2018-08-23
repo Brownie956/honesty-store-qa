@@ -1,4 +1,4 @@
-module.exports.toBeDisplayed = {
+export const toBeDisplayed = {
     toBeDisplayed(received, argument) {
         const pass = received === argument;
         if(pass) {

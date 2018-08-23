@@ -1,13 +1,13 @@
-const Page = require('./Page');
+import * as Page from './Page';
 
-module.exports.url = `${Page.baseURL}/success`;
+export const url = `${Page.baseURL}/success`;
 
-module.exports.notification = {
+export const notification = {
     class: 'text text-remindersent',
     id: 'success-message'
 }
 
-module.exports.images = {
+export const images = {
     successHand: {
         class: 'hand'
     }

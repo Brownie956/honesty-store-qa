@@ -1,7 +1,7 @@
-module.exports.baseURL = 'http://localhost:3000'
+export const baseURL = 'http://localhost:3000'
 
 const notificationBarId = 'notificationBar';
-module.exports.notifications = {
+export const notifications = {
     id: notificationBarId,
     mainText: {
         xpath: `.//div[@id='${notificationBarId}']//div[@class='text']`
@@ -14,7 +14,7 @@ module.exports.notifications = {
     }
 }
 
-module.exports.login = {
+export const login = {
     signInWithGoogle: {
         xpath: ".//li[@class='firebaseui-list-item']//button[@data-provider-id='google.com']"
     },

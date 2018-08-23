@@ -1,6 +1,6 @@
-const EditSnackPage = require('../../page_objects/EditSnackPage');
+import * as EditSnackPage from '../../page_objects/EditSnackPage';
 
-module.exports = {
+export default {
     async viewsEditSnackInstructionsExists() {
         let element = await this.getElementByClass(EditSnackPage.header.instructions.class);
         return await element.isDisplayed();

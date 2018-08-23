@@ -1,13 +1,32 @@
-const User = require('./User');
-const HonestyStorePage = require('../page_objects/Page');
+import * as User from './User';
+import * as HonestyStorePage from '../page_objects/Page';
 
-class HonestyStoreUser extends User {
+import HomeUser from './pageUsers/HomeUser';
+import DisclaimerUser from './pageUsers/DisclaimerUser';
+import ScanItemUser from './pageUsers/ScanItemUser';
+import ConfirmationUser from './pageUsers/ConfirmationUser';
+import SlackNameUser from './pageUsers/SlackNameUser';
+import SuccessUser from './pageUsers/SuccessUser';
+import EditSnackUser from './pageUsers/EditSnackUser';
+
+export default class HonestyStoreUser extends User {
     constructor() {
         super();
         this.kioskUser = {
             username: 'kiosk@honesty.store',
             password: 'ML is tedious'
         }
+
+        /*
+        * Mixins for individual page actions
+        */ 
+        Object.assign(this.prototype, HomeUser);
+        Object.assign(this.prototype, DisclaimerUser);
+        Object.assign(this.prototype, ScanItemUser);
+        Object.assign(this.prototype, ConfirmationUser);
+        Object.assign(this.prototype, SlackNameUser);
+        Object.assign(this.prototype, SuccessUser);
+        Object.assign(this.prototype, EditSnackUser);
     }
 
     async logsIntoKiosk(username, password) {
@@ -45,15 +64,3 @@ class HonestyStoreUser extends User {
     }
 }
 
-/*
-* Mixins for individual page actions
-*/ 
-Object.assign(HonestyStoreUser.prototype, require('./pageUsers/HomeUser'));
-Object.assign(HonestyStoreUser.prototype, require('./pageUsers/DisclaimerUser'));
-Object.assign(HonestyStoreUser.prototype, require('./pageUsers/ScanItemUser'));
-Object.assign(HonestyStoreUser.prototype, require('./pageUsers/ConfirmationUser'));
-Object.assign(HonestyStoreUser.prototype, require('./pageUsers/SlackNameUser'));
-Object.assign(HonestyStoreUser.prototype, require('./pageUsers/SuccessUser'));
-Object.assign(HonestyStoreUser.prototype, require('./pageUsers/EditSnackUser'));
-
-module.exports = HonestyStoreUser

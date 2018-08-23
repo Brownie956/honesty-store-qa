@@ -1,6 +1,6 @@
-const ConfirmItemPage = require('../../page_objects/ConfirmItemPage');
+import * as ConfirmItemPage from '../../page_objects/ConfirmItemPage';
 
-module.exports = {
+export default {
     async removeHand(){
         await this.getElementByClass(ConfirmItemPage.handImage.class);
         return await this.webDriver.executeScript(`document.getElementsByClassName('${ConfirmItemPage.handImage.class}')[0].setAttribute('style', 'display:none');`);

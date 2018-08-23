@@ -1,13 +1,13 @@
-const Page = require('./Page');
+import * as Page from './Page';
 
-module.exports.url = `${Page.baseURL}/slackname`;
+export const url = `${Page.baseURL}/slackname`;
 
-module.exports.getAccountXPath = (name) => {
+export function getAccountXPath(name) {
     return `.//p[text()='${name}']`;
 }
 
 
-module.exports.buttons = {
+export const buttons = {
     confirm: {
         xpath: ".//div[@class='confirm-modal']//button"
     },
@@ -16,12 +16,12 @@ module.exports.buttons = {
     }
 }
 
-module.exports.header = {
+export const header = {
     instructions: {
         class: 'header-text'
     }
 }
 
-module.exports.scrollSelect = {
+export const scrollSelect = {
     id: 'scroll-select'
 }

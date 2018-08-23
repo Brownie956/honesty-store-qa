@@ -1,7 +1,7 @@
-const ScanItemPage = require('../../page_objects/ScanItemPage');
-const path = require('path');
+import * as ScanItemPage from '../../page_objects/ScanItemPage';
+import * as path from 'path';
 
-module.exports = {
+export default {
     async injectWebcam() {
         await this.getElementByCSS(ScanItemPage.header.css);
         return await this.webDriver.executeScript('injectWebcam({isDetecting: false, cameraConnected: true})');

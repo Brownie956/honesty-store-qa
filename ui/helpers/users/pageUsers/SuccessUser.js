@@ -1,6 +1,6 @@
-const SuccessPage = require('../../page_objects/SuccessPage');
+import * as SuccessPage from '../../page_objects/SuccessPage';
 
-module.exports = {
+export default {
     async clicksSuccessMessage() {
         let message = await this.getElementByClass(SuccessPage.notification.class);
         message.click();
