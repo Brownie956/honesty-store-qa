@@ -1,6 +1,6 @@
-const DisclaimerPage = require('../../page_objects/DisclaimerPage');
+import * as DisclaimerPage from '../../page_objects/DisclaimerPage';
 
-module.exports = {
+export default {
     async clicksAcceptDisclaimer() {
         let element = await this.getElementByClass(DisclaimerPage.buttons.accept.class);
         element.click();

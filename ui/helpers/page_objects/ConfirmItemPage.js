@@ -1,12 +1,13 @@
-const Page = require('./Page');
+import * as Page from './Page';
 
-module.exports.url = `${Page.baseURL}/confirmItem`;
+export const url = `${Page.baseURL}/confirmItem`;
 
-module.exports.handImage = {
+export const handImage = {
     class: 'hand' //This isn't a great selector
 }
 
-module.exports.buttons = {
+
+export const buttons = {
     editSnack: {
         xpath: ".//button[@data-test='NO']"
     },

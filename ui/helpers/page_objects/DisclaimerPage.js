@@ -1,8 +1,8 @@
-const Page = require('./Page');
+import * as Page from './Page';
 
-module.exports.url = `${Page.baseURL}/disclaimer`;
+export const url = `${Page.baseURL}/disclaimer`;
 
-module.exports.buttons = {
+export const buttons = {
     accept: {
         class: 'button btn-primary btn-block'
     },

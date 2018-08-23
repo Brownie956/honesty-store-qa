@@ -1,8 +1,8 @@
-const Page = require('./Page');
+import * as Page from './Page';
 
-module.exports.url = `${Page.baseURL}/editsnack`;
+export const url = `${Page.baseURL}/editsnack`;
 
-module.exports.header = {
+export const header = {
     css: 'header',
     instructions: {
         class: 'header-text'
@@ -12,16 +12,16 @@ module.exports.header = {
     }
 }
 
-module.exports.buttons = {
+export const buttons = {
     confirm: {
         xpath: ".//div[@class='confirm-modal']//button"
     }
 }
 
-module.exports.scrollSelect = {
+export const scrollSelect = {
     id: 'scroll-select'
 }
 
-module.exports.getSnackXPath = (snackName) => {
+export function getSnackXPath(snackName) {
     return `.//p[text()='${snackName}']`
 }

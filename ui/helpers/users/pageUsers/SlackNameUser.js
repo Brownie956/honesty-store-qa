@@ -1,6 +1,6 @@
-const SlackNamePage = require('../../page_objects/SlackNamePage');
+import * as SlackNamePage from '../../page_objects/SlackNamePage';
 
-module.exports = {
+export default {
     async clicksAccountName(name) {
         let element = await this.getElementByXPath(SlackNamePage.getAccountXPath(name));
         await this.focusOnElement(element);

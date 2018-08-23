@@ -1,13 +1,13 @@
-const ScanItemPage = require('../../page_objects/ScanItemPage');
-const path = require('path');
+import * as ScanItemPage from '../../page_objects/ScanItemPage';
+import * as path from 'path';
 
-module.exports = {
+export default {
     async injectWebcam() {
         await this.getElementByCSS(ScanItemPage.header.css);
         return await this.webDriver.executeScript('injectWebcam({isDetecting: false, cameraConnected: true})');
     },
 
-    async uploadsFile(filePath = `${path.resolve(__dirname)}\\..\\..\\..\\assets\\coke-zero.jpg`) {
+    async uploadsFile(filePath = `${path.resolve(__dirname)}\\..\\..\\..\\assets\\walkers.jpg`) {
         let element = await this.getElementById(ScanItemPage.fileUpload.browse.id);
         await element.isDisplayed();
         await element.sendKeys(filePath);

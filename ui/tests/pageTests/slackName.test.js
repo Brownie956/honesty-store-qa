@@ -1,7 +1,5 @@
-const HonestyStoreUser = require('../../helpers/users/HonestyStoreUser');
-const EditSnackPage = require('../../helpers/page_objects/EditSnackPage');
-const HomePage = require('../../helpers/page_objects/HomePage');
-const specHelper = require('../../helpers/specHelper');
+import HonestyStoreUser from '../../helpers/users/HonestyStoreUser';
+import * as specHelper from '../../helpers/specHelper';
 
 const user = new HonestyStoreUser();
 

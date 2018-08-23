@@ -1,14 +1,14 @@
-const Page = require('./Page');
+import * as Page from './Page';
 
-module.exports.url = `${Page.baseURL}/scanitem`;
+export const url = `${Page.baseURL}/scanitem`;
 
-module.exports.fileUpload = {
+export const fileUpload = {
     browse: {
         id: 'fileUpload'
     }
 }
 
-module.exports.header = {
+export const header = {
     css: 'header',
     instructions: {
         class: 'header-text'
@@ -18,6 +18,6 @@ module.exports.header = {
     }
 }
 
-module.exports.viewFinder = {
+export const viewFinder = {
     id: 'view-finder'
 }

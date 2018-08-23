@@ -1,5 +1,13 @@
-const User = require('./User');
-const HonestyStorePage = require('../page_objects/Page');
+import User from './User';
+import * as HonestyStorePage from '../page_objects/Page';
+
+import HomeUser from './pageUsers/HomeUser';
+import DisclaimerUser from './pageUsers/DisclaimerUser';
+import ScanItemUser from './pageUsers/ScanItemUser';
+import ConfirmationUser from './pageUsers/ConfirmationUser';
+import SlackNameUser from './pageUsers/SlackNameUser';
+import SuccessUser from './pageUsers/SuccessUser';
+import EditSnackUser from './pageUsers/EditSnackUser';
 
 class HonestyStoreUser extends User {
     constructor() {
@@ -48,12 +56,12 @@ class HonestyStoreUser extends User {
 /*
 * Mixins for individual page actions
 */ 
-Object.assign(HonestyStoreUser.prototype, require('./pageUsers/HomeUser'));
-Object.assign(HonestyStoreUser.prototype, require('./pageUsers/DisclaimerUser'));
-Object.assign(HonestyStoreUser.prototype, require('./pageUsers/ScanItemUser'));
-Object.assign(HonestyStoreUser.prototype, require('./pageUsers/ConfirmationUser'));
-Object.assign(HonestyStoreUser.prototype, require('./pageUsers/SlackNameUser'));
-Object.assign(HonestyStoreUser.prototype, require('./pageUsers/SuccessUser'));
-Object.assign(HonestyStoreUser.prototype, require('./pageUsers/EditSnackUser'));
+Object.assign(HonestyStoreUser.prototype, HomeUser);
+Object.assign(HonestyStoreUser.prototype, DisclaimerUser);
+Object.assign(HonestyStoreUser.prototype, ScanItemUser);
+Object.assign(HonestyStoreUser.prototype, ConfirmationUser);
+Object.assign(HonestyStoreUser.prototype, SlackNameUser);
+Object.assign(HonestyStoreUser.prototype, SuccessUser);
+Object.assign(HonestyStoreUser.prototype, EditSnackUser);
 
-module.exports = HonestyStoreUser
+export default HonestyStoreUser;

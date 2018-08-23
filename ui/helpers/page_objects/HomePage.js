@@ -1,8 +1,8 @@
-const Page = require('./Page');
+import * as Page from './Page';
 
-module.exports.url = `${Page.baseURL}/`;
+export const url = `${Page.baseURL}/`;
 
-module.exports.buttons = {
+export const buttons = {
     noPhoto: {
         class: 'button btn-secondary btn-block'
     },
@@ -11,13 +11,13 @@ module.exports.buttons = {
     }
 }
 
-module.exports.images = {
+export const images = {
     hands: {
         class: 'homepage--hands'
     }
 }
 
-module.exports.text = {
+export const text = {
     heading: {
         class: 'text text-payinglater'
     },

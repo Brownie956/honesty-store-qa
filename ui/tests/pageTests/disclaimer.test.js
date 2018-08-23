@@ -1,6 +1,6 @@
-const HonestyStoreUser = require('../../helpers/users/HonestyStoreUser');
-const DisclaimerPage = require('../../helpers/page_objects/DisclaimerPage');
-const HomePage = require('../../helpers/page_objects/HomePage');
+import HonestyStoreUser from '../../helpers/users/HonestyStoreUser';
+import * as DisclaimerPage from '../../helpers/page_objects/DisclaimerPage';
+import * as HomePage from '../../helpers/page_objects/HomePage';
 
 const user = new HonestyStoreUser();
 

@@ -1,7 +1,7 @@
-const {By, until} = require('selenium-webdriver');
-const config = require('../../config/config');
+import { By, until } from 'selenium-webdriver';
+import * as config from '../../config/config';
 
-class User {
+export default class User {
     constructor() {
         this.webDriver = config.setup();
     }
@@ -82,4 +82,3 @@ class User {
     }
 }
 
-module.exports = User;

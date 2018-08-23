@@ -1,6 +1,6 @@
-const HomePage = require('../../page_objects/HomePage');
+import * as HomePage from '../../page_objects/HomePage';
 
-module.exports = {
+export default {
     async navigatesToHomePage() {
         this.navigateToPage(HomePage.url);
     },
