@@ -3,12 +3,12 @@ import * as EditSnackPage from '../../page_objects/EditSnackPage';
 export default {
     async viewsEditSnackInstructionsExists() {
         let element = await this.getElementByClass(EditSnackPage.header.instructions.class);
-        return await element.isDisplayed();
+        return element.isDisplayed();
     },
 
     async viewsEditSnackScrollSelectExists() {
         let element = await this.getElementById(EditSnackPage.scrollSelect.id);
-        return await element.isDisplayed();
+        return element.isDisplayed();
     },
 
     async clicksConfirmSnack() {

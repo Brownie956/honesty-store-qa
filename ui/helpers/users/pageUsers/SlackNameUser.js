@@ -14,11 +14,11 @@ export default {
 
     async viewsSlackNameInstructionsExists() {
         let element = await this.getElementByClass(SlackNamePage.header.instructions.class);
-        return await element.isDisplayed();
+        return element.isDisplayed();
     },
 
     async viewsSlackNameScrollSelectExists() {
         let element = await this.getElementById(SlackNamePage.scrollSelect.id);
-        return await element.isDisplayed();
+        return element.isDisplayed();
     }
 }

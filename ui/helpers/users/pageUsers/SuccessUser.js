@@ -13,11 +13,11 @@ export default {
 
     async viewsSuccessHandExists() {
         let element = await this.getElementByClass(SuccessPage.images.successHand.class);
-        return await element.isDisplayed();
+        return element.isDisplayed();
     },
 
     async removeSuccessHand(){
         await this.getElementByClass(SuccessPage.images.successHand.class);
-        return await this.webDriver.executeScript(`document.getElementsByClassName('${SuccessPage.images.successHand.class}')[0].setAttribute('style', 'display:none');`);
+        return this.webDriver.executeScript(`document.getElementsByClassName('${SuccessPage.images.successHand.class}')[0].setAttribute('style', 'display:none');`);
     },
 }
