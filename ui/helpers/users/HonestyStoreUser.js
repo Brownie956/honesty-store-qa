@@ -1,4 +1,4 @@
-import * as User from './User';
+import User from './User';
 import * as HonestyStorePage from '../page_objects/Page';
 
 import HomeUser from './pageUsers/HomeUser';
@@ -9,24 +9,13 @@ import SlackNameUser from './pageUsers/SlackNameUser';
 import SuccessUser from './pageUsers/SuccessUser';
 import EditSnackUser from './pageUsers/EditSnackUser';
 
-export default class HonestyStoreUser extends User {
+class HonestyStoreUser extends User {
     constructor() {
         super();
         this.kioskUser = {
             username: 'kiosk@honesty.store',
             password: 'ML is tedious'
         }
-
-        /*
-        * Mixins for individual page actions
-        */ 
-        Object.assign(this.prototype, HomeUser);
-        Object.assign(this.prototype, DisclaimerUser);
-        Object.assign(this.prototype, ScanItemUser);
-        Object.assign(this.prototype, ConfirmationUser);
-        Object.assign(this.prototype, SlackNameUser);
-        Object.assign(this.prototype, SuccessUser);
-        Object.assign(this.prototype, EditSnackUser);
     }
 
     async logsIntoKiosk(username, password) {
@@ -64,3 +53,15 @@ export default class HonestyStoreUser extends User {
     }
 }
 
+/*
+* Mixins for individual page actions
+*/ 
+Object.assign(HonestyStoreUser.prototype, HomeUser);
+Object.assign(HonestyStoreUser.prototype, DisclaimerUser);
+Object.assign(HonestyStoreUser.prototype, ScanItemUser);
+Object.assign(HonestyStoreUser.prototype, ConfirmationUser);
+Object.assign(HonestyStoreUser.prototype, SlackNameUser);
+Object.assign(HonestyStoreUser.prototype, SuccessUser);
+Object.assign(HonestyStoreUser.prototype, EditSnackUser);
+
+export default HonestyStoreUser;

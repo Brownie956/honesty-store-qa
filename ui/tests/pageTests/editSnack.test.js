@@ -1,4 +1,4 @@
-import * as HonestyStoreUser from '../../helpers/users/HonestyStoreUser';
+import HonestyStoreUser from '../../helpers/users/HonestyStoreUser';
 import * as HomePage from '../../helpers/page_objects/HomePage';
 import * as EditSnackPage from '../../helpers/page_objects/EditSnackPage';
 import * as specHelper from '../../helpers/specHelper';
