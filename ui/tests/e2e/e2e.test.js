@@ -32,8 +32,12 @@ describe('The honesty store kiosk', () => {
         await user.clicksAccountName('cbrown');
         await user.clicksConfirmSlackMessage();
         //Success
-        let reminderMessage = await user.viewsSuccessMessage();
         let successHand = await user.viewsSuccessHandExists();
+        expect(successHand).toBeDisplayed(true);
+
+        await user.removeSuccessHand(); //hack
+
+        let reminderMessage = await user.viewsSuccessMessage();
         expect(reminderMessage).toEqual('Reminder sent!');
         expect(successHand).toBeDisplayed(true);
         //Final check
@@ -62,8 +66,12 @@ describe('The honesty store kiosk', () => {
         await user.clicksAccountName('cbrown');
         await user.clicksConfirmSlackMessage();
         //Success
-        let reminderMessage = await user.viewsSuccessMessage();
         let successHand = await user.viewsSuccessHandExists();
+        expect(successHand).toBeDisplayed(true);
+
+        await user.removeSuccessHand(); //hack
+
+        let reminderMessage = await user.viewsSuccessMessage();
         expect(reminderMessage).toEqual('Reminder sent!');
         expect(successHand).toBeDisplayed(true);
         //Final check
@@ -73,7 +81,7 @@ describe('The honesty store kiosk', () => {
         expect(currentURL).toBe(HomePage.url);
     });
 
-    it.only('fails to identify a snack and allow the user to select their snack', async () => {
+    it('fails to identify a snack and allow the user to select their snack', async () => {
         expect.extend(specHelper.toBeDisplayed);
         //Home
         await user.clicksSendReminder();
