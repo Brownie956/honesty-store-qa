@@ -7,7 +7,7 @@ export default class User {
     }
 
     async waitForDuration(durationMillis) {
-        this.webDriver.sleep(durationMillis);
+        return this.webDriver.sleep(durationMillis);
     }
 
     async waitUntil(condition, timeout = 20000) {

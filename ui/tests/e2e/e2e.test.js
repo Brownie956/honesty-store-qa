@@ -42,7 +42,7 @@ describe('The honesty store kiosk', () => {
         expect(successHand).toBeDisplayed(true);
         //Final check
         await user.clicksSuccessMessage();
-        await user.waitUntil(user.getCurrentURL != SuccessPage.url);
+        await user.waitUntil((await user.viewsCurrentURL()) != SuccessPage.url);
         const currentURL = await user.viewsCurrentURL();
         expect(currentURL).toBe(HomePage.url);
     });
@@ -76,7 +76,7 @@ describe('The honesty store kiosk', () => {
         expect(successHand).toBeDisplayed(true);
         //Final check
         await user.clicksSuccessMessage();
-        await user.waitUntil(user.getCurrentURL != SuccessPage.url);
+        await user.waitUntil((await user.viewsCurrentURL()) != SuccessPage.url);
         const currentURL = await user.viewsCurrentURL();
         expect(currentURL).toBe(HomePage.url);
     });
@@ -106,7 +106,7 @@ describe('The honesty store kiosk', () => {
         expect(reminderMessage).toEqual('Reminder sent!');
         //Final check
         await user.clicksSuccessMessage();
-        await user.waitUntil(user.getCurrentURL != SuccessPage.url);
+        await user.waitUntil((await user.viewsCurrentURL()) != SuccessPage.url);
         const currentURL = await user.viewsCurrentURL();
         expect(currentURL).toBe(HomePage.url);
     });
@@ -135,7 +135,7 @@ describe('The honesty store kiosk', () => {
         expect(successHand).toBeDisplayed(true);
         //Final check
         await user.clicksSuccessMessage();
-        await user.waitUntil(user.getCurrentURL != SuccessPage.url);
+        await user.waitUntil((await user.viewsCurrentURL()) != SuccessPage.url);
         const currentURL = await user.viewsCurrentURL();
         expect(currentURL).toBe(HomePage.url);
     });

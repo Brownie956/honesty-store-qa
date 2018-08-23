@@ -16,17 +16,18 @@ describe('The honesty store kiosk', () => {
     });
 
     it('shows a timeout notification and returns to the home page', async () => {
-        await user.waitUntil(user.getCurrentURL == DisclaimerPage.url);
-        user.waitForDuration(45000);
+        
+        await user.waitUntil((await user.viewsCurrentURL()) == DisclaimerPage.url);
+        await user.waitForDuration(45000);
 
         let notificationText = await user.viewsNotificationText();
         let notificationDismiss = await user.viewsNotificationDismiss();
         
         expect(notificationText).toEqual('Are you still there?');
-        expect(notificationDismiss).toEqual('Dismiss');
+        expect(notificationDismiss).toEqual('DISMISS');
 
-        user.waitForDuration(20000);
-        await user.waitUntil(user.getCurrentURL != DisclaimerPage.url);
+        await user.waitForDuration(20000);
+        await user.waitUntil((await user.viewsCurrentURL()) != DisclaimerPage.url);
         const currentURL = await user.viewsCurrentURL();
         expect(currentURL).toBe(HomePage.url);
     });
