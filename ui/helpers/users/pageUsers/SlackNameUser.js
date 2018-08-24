@@ -20,5 +20,10 @@ export default {
     async viewsSlackNameScrollSelectExists() {
         let element = await this.getElementById(SlackNamePage.scrollSelect.id);
         return element.isDisplayed();
+    },
+
+    async clicksSlackNameBackButton() {
+        let element = await this.getElementByClass(SlackNamePage.buttons.back.class);
+        return element.click();
     }
 }

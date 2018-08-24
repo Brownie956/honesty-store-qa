@@ -1,4 +1,6 @@
 import HonestyStoreUser from '../../helpers/users/HonestyStoreUser';
+import * as HomePage from '../../helpers/page_objects/HomePage';
+import * as SlackNamePage from '../../helpers/page_objects/SlackNamePage';
 import * as specHelper from '../../helpers/specHelper';
 
 const user = new HonestyStoreUser();
@@ -34,5 +36,13 @@ describe('The honesty store kiosk slack name page', () => {
 
         expect(editSnackInstructions).toBeDisplayed(true);
         expect(scrollSelect).toBeDisplayed(true);
+    });
+
+    it('returns to home page', async () => {
+        await user.clicksSlackNameBackButton();
+
+        await user.waitUntil(user.getCurrentURL != SlackNamePage.url);
+        const currentURL = await user.viewsCurrentURL();
+        expect(currentURL).toBe(HomePage.url);
     });
 });
