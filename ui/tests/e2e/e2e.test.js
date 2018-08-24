@@ -7,16 +7,20 @@ import * as path from 'path';
 const user = new HonestyStoreUser();
 
 describe('The honesty store kiosk', () => {
-    beforeEach(async () => {
+    beforeAll(async () => {
         await user.navigatesToHomePage();
         await user.logsIntoKiosk(user.kioskUser.username, user.kioskUser.password);
+    });
+
+    beforeEach(async () => {
+        await user.navigatesToHomePage();
     });
 
     afterAll(async () => {
         await user.browserQuit();
     });
 
-    fit('identifies an item and sends a slack reminder', async () => {
+    it('identifies an item and sends a slack reminder', async () => {
         expect.extend(specHelper.toBeDisplayed);
         //Home
         await user.clicksSendReminder();

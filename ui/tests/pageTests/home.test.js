@@ -4,9 +4,13 @@ import * as specHelper from '../../helpers/specHelper';
 const user = new HonestyStoreUser();
 
 describe('The honesty store kiosk home page', () => {
-    beforeEach(async () => {
+    beforeAll(async () => {
         await user.navigatesToHomePage();
         await user.logsIntoKiosk(user.kioskUser.username, user.kioskUser.password);
+    });
+
+    beforeEach(async () => {
+        await user.navigatesToHomePage();
     });
 
     afterAll(async () => {

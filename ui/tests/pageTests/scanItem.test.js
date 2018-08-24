@@ -6,10 +6,14 @@ import * as specHelper from '../../helpers/specHelper';
 const user = new HonestyStoreUser();
 
 describe('The honesty store kiosk scan item page', () => {
+    beforeAll(async () => {
+        await user.navigatesToHomePage();
+        await user.logsIntoKiosk(user.kioskUser.username, user.kioskUser.password);
+    });
+
     beforeEach(async () => {
         //Home
         await user.navigatesToHomePage();
-        await user.logsIntoKiosk(user.kioskUser.username, user.kioskUser.password);
         await user.clicksSendReminder();
         //Disclaimer
         await user.clicksAcceptDisclaimer();
