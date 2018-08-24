@@ -18,10 +18,6 @@ const driverType = driverTypes.FIREFOX;
 
 class Driver {
     constructor() {
-        // const profile = `${path.resolve(__dirname)}\\firefoxprofile.default`
-        // let options = new firefox.Options().setProfile(profile);
-
-        // this.webDriver = new Builder().forBrowser(driverType).setFirefoxOptions(options).build();
         this.webDriver = new Builder().forBrowser(driverType).build();
         this.webDriver.manage().window().maximize();
     }
