@@ -8,11 +8,11 @@ export default {
 
     async clicksConfirmSnack(){
         let confirmButton = await this.getElementByXPath(ConfirmItemPage.buttons.confirmSnack.xpath);
-        confirmButton.click();
+        return confirmButton.click();
     },
 
     async clicksEditSnack(){
         let confirmButton = await this.getElementByXPath(ConfirmItemPage.buttons.editSnack.xpath);
-        confirmButton.click();
+        return confirmButton.click();
     }
 }

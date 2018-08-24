@@ -4,13 +4,13 @@ import * as path from 'path';
 export default {
     async injectWebcam() {
         await this.getElementByCSS(ScanItemPage.header.css);
-        return await this.webDriver.executeScript('injectWebcam({isDetecting: false, cameraConnected: true})');
+        return this.webDriver.executeScript('injectWebcam({isDetecting: false, cameraConnected: true})');
     },
 
     async uploadsFile(filePath = `${path.resolve(__dirname)}\\..\\..\\..\\assets\\walkers.jpg`) {
         let element = await this.getElementById(ScanItemPage.fileUpload.browse.id);
         await element.isDisplayed();
-        await element.sendKeys(filePath);
+        return await element.sendKeys(filePath);
     },
 
     async viewsCameraInstructionsExists() {
@@ -25,6 +25,6 @@ export default {
 
     async clicksScanItemBackButton() {
         let element = await this.getElementByClass(ScanItemPage.header.back.class);
-        element.click();
+        return element.click();
     }
 }

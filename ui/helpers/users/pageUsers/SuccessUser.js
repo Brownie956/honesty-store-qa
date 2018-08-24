@@ -3,7 +3,7 @@ import * as SuccessPage from '../../page_objects/SuccessPage';
 export default {
     async clicksSuccessMessage() {
         let message = await this.getElementByClass(SuccessPage.notification.class);
-        message.click();
+        return message.click();
     },
 
     async viewsSuccessMessage() {

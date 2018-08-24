@@ -4,12 +4,12 @@ export default {
     async clicksAccountName(name) {
         let element = await this.getElementByXPath(SlackNamePage.getAccountXPath(name));
         await this.focusOnElement(element);
-        element.click();
+        return element.click();
     },
 
     async clicksConfirmSlackMessage() {
         let element = await this.getElementByXPath(SlackNamePage.buttons.confirm.xpath);
-        element.click();
+        return element.click();
     },
 
     async viewsSlackNameInstructionsExists() {

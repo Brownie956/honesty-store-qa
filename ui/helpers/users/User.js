@@ -11,13 +11,13 @@ export default class User {
     }
 
     async waitUntil(condition, timeout = 20000) {
-        this.webDriver.wait(() => {
+        return this.webDriver.wait(() => {
             return condition;
         }, timeout)
     }
 
     async waitUntilElementNotPresent(locator, timeout = 20000) {
-        this.webDriver.wait(() => {
+        return this.webDriver.wait(() => {
             return this.webDriver.findElements(locator).then((elements) => {
                 return elements.length <= 0;
             });
@@ -25,7 +25,7 @@ export default class User {
     }
 
     async waitForElementLocated(selector, selectorType, timeout = 20000) {
-        this.webDriver.wait(until.elementLocated(
+        return this.webDriver.wait(until.elementLocated(
             (() => {
                 switch(selectorType) {
                     case 'id':
@@ -46,7 +46,7 @@ export default class User {
     }
 
     async focusOnElement(element) {
-        this.webDriver.executeScript("arguments[0].scrollIntoView(false);", element);
+        return this.webDriver.executeScript("arguments[0].scrollIntoView(false);", element);
     }
 
     async getElementById(id, timeout = 20000) {
@@ -70,7 +70,7 @@ export default class User {
     }
     
     async navigateToPage(url) {
-        this.webDriver.get(url);
+        return this.webDriver.get(url);
     }
 
     async viewsCurrentURL() {
@@ -78,6 +78,6 @@ export default class User {
     }
 
     async browserQuit(){
-        this.webDriver.quit();
+        return this.webDriver.quit();
     }
 }

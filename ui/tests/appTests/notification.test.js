@@ -16,7 +16,6 @@ describe('The honesty store kiosk', () => {
     });
 
     it('shows a timeout notification and returns to the home page', async () => {
-        
         await user.waitUntil((await user.viewsCurrentURL()) == DisclaimerPage.url);
         await user.waitForDuration(45000);
 

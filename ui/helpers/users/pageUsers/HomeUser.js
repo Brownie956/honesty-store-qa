@@ -2,13 +2,13 @@ import * as HomePage from '../../page_objects/HomePage';
 
 export default {
     async navigatesToHomePage() {
-        this.navigateToPage(HomePage.url);
+        return this.navigateToPage(HomePage.url);
     },
 
     async clicksSendReminder() {
         this.waitForDuration(5000); //Hack due to issue #342 (connection error on initial login)
         let element = await this.getElementByClass(HomePage.buttons.noPhoto.class);
-        element.click();
+        return element.click();
     },
 
     async viewsSendReminder() {
@@ -23,7 +23,7 @@ export default {
 
     async clicksSendSnackChat() {
         let element = await this.getElementByClass(HomePage.buttons.snackChat.class);
-        element.click();
+        return element.click();
     },
 
     async viewsSendSnackChat() {

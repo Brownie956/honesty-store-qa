@@ -16,7 +16,7 @@ describe('The honesty store kiosk', () => {
         await user.browserQuit();
     });
 
-    it('identifies an item and sends a slack reminder', async () => {
+    fit('identifies an item and sends a slack reminder', async () => {
         expect.extend(specHelper.toBeDisplayed);
         //Home
         await user.clicksSendReminder();
@@ -61,7 +61,7 @@ describe('The honesty store kiosk', () => {
         await user.clicksEditSnack();
         //Edit Snack
         await user.selectsSnack('Mars Bar');
-        await user.clicksConfirmSnack();
+        await user.clicksConfirmSnackSelection();
         //Slack Name
         await user.clicksAccountName('cbrown');
         await user.clicksConfirmSlackMessage();
@@ -92,7 +92,7 @@ describe('The honesty store kiosk', () => {
         await user.uploadsFile(`${path.resolve(__dirname)}\\..\\..\\assets\\empty.png`);
         //Edit Snack
         await user.selectsSnack('Mars Bar');
-        await user.clicksConfirmSnack();
+        await user.clicksConfirmSnackSelection();
         //Slack Name
         await user.clicksAccountName('cbrown');
         await user.clicksConfirmSlackMessage();
@@ -122,7 +122,7 @@ describe('The honesty store kiosk', () => {
         await user.uploadsFile(`${path.resolve(__dirname)}\\..\\..\\assets\\empty.png`);
         //Edit Snack
         await user.selectsSnack('Mars Bar');
-        await user.clicksConfirmSnack();
+        await user.clicksConfirmSnackSelection();
         //SnackChat
         //TODO how do we get around this?
         //Slack Name
