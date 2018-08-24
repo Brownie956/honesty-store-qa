@@ -5,9 +5,13 @@ import * as HomePage from '../../helpers/page_objects/HomePage';
 const user = new HonestyStoreUser();
 
 describe('The honesty store kiosk disclaimer page', () => {
-    beforeEach(async () => {
+    beforeAll(async () => {
         await user.navigatesToHomePage();
         await user.logsIntoKiosk(user.kioskUser.username, user.kioskUser.password);
+    });
+
+    beforeEach(async () => {
+        await user.navigatesToHomePage();
         await user.clicksSendReminder();
     });
 

@@ -34,7 +34,7 @@ class HonestyStoreUser extends User {
         submit = await this.getElementByXPath(HonestyStorePage.login.signInWithEmail.submit.xpath);
         await submit.click();
 
-        await this.waitUntilElementNotPresent({id: HonestyStorePage.login.container.id});
+        return await this.waitUntilElementNotPresent({id: HonestyStorePage.login.container.id});
     }
 
     async viewsNotificationText() {

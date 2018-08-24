@@ -2,52 +2,52 @@ import * as HomePage from '../../page_objects/HomePage';
 
 export default {
     async navigatesToHomePage() {
-        this.navigateToPage(HomePage.url);
+        return this.navigateToPage(HomePage.url);
     },
 
     async clicksSendReminder() {
         this.waitForDuration(5000); //Hack due to issue #342 (connection error on initial login)
         let element = await this.getElementByClass(HomePage.buttons.noPhoto.class);
-        element.click();
+        return element.click();
     },
 
     async viewsSendReminder() {
         let element = await this.getElementByClass(HomePage.buttons.noPhoto.class);
-        return await element.getText();
+        return element.getText();
     },
 
     async viewsSendReminderExists() {
         let element = await this.getElementByClass(HomePage.buttons.noPhoto.class);
-        return await element.isDisplayed();
+        return element.isDisplayed();
     },
 
     async clicksSendSnackChat() {
         let element = await this.getElementByClass(HomePage.buttons.snackChat.class);
-        element.click();
+        return element.click();
     },
 
     async viewsSendSnackChat() {
         let element = await this.getElementByClass(HomePage.buttons.snackChat.class);
-        return await element.getText();
+        return element.getText();
     },
 
     async viewsSendSnackChatExists() {
         let element = await this.getElementByClass(HomePage.buttons.snackChat.class);
-        return await element.isDisplayed();
+        return element.isDisplayed();
     },
 
     async viewsHandImagesExists() {
         let element = await this.getElementByClass(HomePage.images.hands.class);
-        return await element.isDisplayed();
+        return element.isDisplayed();
     },
 
     async viewsHomeHeadingExists() {
         let element = await this.getElementByClass(HomePage.text.heading.class);
-        return await element.isDisplayed();
+        return element.isDisplayed();
     },
 
     async viewsHomeSubHeadingExists() {
         let element = await this.getElementByClass(HomePage.text.subheading.class);
-        return await element.isDisplayed();
+        return element.isDisplayed();
     }
 }

@@ -5,9 +5,13 @@ import * as HomePage from '../../helpers/page_objects/HomePage';
 const user = new HonestyStoreUser();
 
 describe('The honesty store kiosk', () => {
-    beforeEach(async () => {
+    beforeAll(async () => {
         await user.navigatesToHomePage();
         await user.logsIntoKiosk(user.kioskUser.username, user.kioskUser.password);
+    });
+
+    beforeEach(async () => {
+        await user.navigatesToHomePage();
         await user.clicksSendReminder();
     });
 
@@ -16,7 +20,6 @@ describe('The honesty store kiosk', () => {
     });
 
     it('shows a timeout notification and returns to the home page', async () => {
-        
         await user.waitUntil((await user.viewsCurrentURL()) == DisclaimerPage.url);
         await user.waitForDuration(45000);
 

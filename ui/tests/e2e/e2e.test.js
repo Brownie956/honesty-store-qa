@@ -7,9 +7,13 @@ import * as path from 'path';
 const user = new HonestyStoreUser();
 
 describe('The honesty store kiosk', () => {
-    beforeEach(async () => {
+    beforeAll(async () => {
         await user.navigatesToHomePage();
         await user.logsIntoKiosk(user.kioskUser.username, user.kioskUser.password);
+    });
+
+    beforeEach(async () => {
+        await user.navigatesToHomePage();
     });
 
     afterAll(async () => {
@@ -61,7 +65,7 @@ describe('The honesty store kiosk', () => {
         await user.clicksEditSnack();
         //Edit Snack
         await user.selectsSnack('Mars Bar');
-        await user.clicksConfirmSnack();
+        await user.clicksConfirmSnackSelection();
         //Slack Name
         await user.clicksAccountName('cbrown');
         await user.clicksConfirmSlackMessage();
@@ -92,7 +96,7 @@ describe('The honesty store kiosk', () => {
         await user.uploadsFile(`${path.resolve(__dirname)}\\..\\..\\assets\\empty.png`);
         //Edit Snack
         await user.selectsSnack('Mars Bar');
-        await user.clicksConfirmSnack();
+        await user.clicksConfirmSnackSelection();
         //Slack Name
         await user.clicksAccountName('cbrown');
         await user.clicksConfirmSlackMessage();
@@ -122,7 +126,7 @@ describe('The honesty store kiosk', () => {
         await user.uploadsFile(`${path.resolve(__dirname)}\\..\\..\\assets\\empty.png`);
         //Edit Snack
         await user.selectsSnack('Mars Bar');
-        await user.clicksConfirmSnack();
+        await user.clicksConfirmSnackSelection();
         //SnackChat
         //TODO how do we get around this?
         //Slack Name

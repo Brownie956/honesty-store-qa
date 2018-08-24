@@ -11,13 +11,13 @@ export default class User {
     }
 
     async waitUntil(condition, timeout = 20000) {
-        return await this.webDriver.wait(() => {
+        return this.webDriver.wait(() => {
             return condition;
         }, timeout)
     }
 
     async waitUntilElementNotPresent(locator, timeout = 20000) {
-        return await this.webDriver.wait(() => {
+        return this.webDriver.wait(() => {
             return this.webDriver.findElements(locator).then((elements) => {
                 return elements.length <= 0;
             });
@@ -25,7 +25,7 @@ export default class User {
     }
 
     async waitForElementLocated(selector, selectorType, timeout = 20000) {
-        return await this.webDriver.wait(until.elementLocated(
+        return this.webDriver.wait(until.elementLocated(
             (() => {
                 switch(selectorType) {
                     case 'id':
@@ -46,39 +46,38 @@ export default class User {
     }
 
     async focusOnElement(element) {
-        await this.webDriver.executeScript("arguments[0].scrollIntoView(false);", element);
+        return this.webDriver.executeScript("arguments[0].scrollIntoView(false);", element);
     }
 
     async getElementById(id, timeout = 20000) {
-        return await this.waitForElementLocated(id, 'id', timeout);
+        return this.waitForElementLocated(id, 'id', timeout);
     }
     
     async getElementByXPath(xpath, timeout = 20000) {
-        return await this.waitForElementLocated(xpath, 'xpath', timeout);
+        return this.waitForElementLocated(xpath, 'xpath', timeout);
     }
 
     async getElementByClass(className, timeout = 20000) {
-        return await this.waitForElementLocated(className, 'class', timeout);
+        return this.waitForElementLocated(className, 'class', timeout);
     }
 
     async getElementByCSS(css, timeout = 20000) {
-        return await this.waitForElementLocated(css, 'css', timeout);
+        return this.waitForElementLocated(css, 'css', timeout);
     }
 
     async getElementByName(name, timeout = 20000) {
-        return await this.waitForElementLocated(name, 'name', timeout);
+        return this.waitForElementLocated(name, 'name', timeout);
     }
     
     async navigateToPage(url) {
-        await this.webDriver.get(url);
+        return this.webDriver.get(url);
     }
 
     async viewsCurrentURL() {
-        return await this.webDriver.getCurrentUrl();
+        return this.webDriver.getCurrentUrl();
     }
 
-    browserQuit(){
-       this.webDriver.quit();
+    async browserQuit(){
+        return this.webDriver.quit();
     }
 }
-
